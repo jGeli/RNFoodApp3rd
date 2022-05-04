@@ -271,7 +271,7 @@ const FoodDetail = ({navigation}) => {
                 }}
             >
                 <Image 
-                    source={images.profile}
+                    source={images.alayon}
                     style={{
                         width: 50,
                         height: 50,
@@ -287,7 +287,7 @@ const FoodDetail = ({navigation}) => {
                         justifyContent: 'center'
                     }}
                 >
-                    <Text style={{ ...FONTS.h3 }}>BugTech</Text>
+                    <Text style={{ ...FONTS.h3 }}>Alayon</Text>
                     <Text style={{ color: COLORS.gray, ...FONTS.body4}}>1.2 KM away from you</Text>
                 </View>
                 {/* Ratings */}
