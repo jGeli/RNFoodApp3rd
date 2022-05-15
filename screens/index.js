@@ -14,7 +14,13 @@ import MyCard from "./Card/MyCard"
 import DeliveryStatus from "./Delivery/DeliveryStatus"
 import Map from "./Delivery/Map"
 
+//Menu
+import Menu from './Menu/Menu';
+
+
+
 export {
+    Menu,
     FoodDetail,
 
     Checkout,

@@ -150,6 +150,50 @@ const myCart = [
     }
 ]
 
+const products = [
+    {  
+        ...wrapSandwich,
+        id: 1,
+        stocks: 2
+    },
+    {
+        ...hamburger,
+        stocks: 1,
+        id: 2
+    },
+    {
+        ...hotTacos,
+        stocks: 1,
+        id: 3
+
+    },
+    {
+        ...vegBiryani,
+        stocks: 1,
+        id: 4
+    },
+    {
+        ...wrapSandwich,
+        stocks: 2,
+        id: 5
+    },
+    {
+        ...hamburger,
+        stocks: 1,
+        id: 6
+    },
+    {
+        ...hotTacos,
+        stocks: 1,
+        id: 7
+    },
+    {
+        ...vegBiryani,
+        stocks: 1,
+        id: 8
+    }
+]
+
 const myCards = [
     {
         id: 1,
@@ -223,7 +267,7 @@ const fromLocs = [
 
 export default {
     vegBiryani,
-    
+    products,
     myProfile,
     categories,
     menu,

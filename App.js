@@ -4,7 +4,7 @@ import { NavigationContainer } from '@react-navigation/native';
 
 import {
     FoodDetail,
-
+    Menu,
     Checkout,
     MyCart,
     Success,
@@ -26,8 +26,13 @@ const App = () => {
                 screenOptions={{
                     headerShown: false
                 }}
-                initialRouteName={'FoodDetails'}
+                initialRouteName={'Menu'}
             >
+                  <Stack.Screen
+                    name="Menu"
+                    component={Menu}
+                />
+
                 <Stack.Screen
                     name="FoodDetail"
                     component={FoodDetail}

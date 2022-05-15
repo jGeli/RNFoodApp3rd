@@ -12,6 +12,7 @@ import {
     Header,
     IconButton,
     CartQuantityButton,
+    TextButton,
     StepperInput,
     FooterTotal
 } from "../../components";
@@ -33,13 +34,14 @@ const MyCart = ({ navigation }) => {
     }
 
     function removeMyCartHandler(id) {
+        // console.log(id)
         let newMyCartList = [...myCartList]
 
-        const index = newMyCartList.findIndex(cart => cart.id === id) 
+        const arr = newMyCartList.filter(cart => Number(cart.id) !== Number(id)) 
 
-        newMyCartList.splice(index, 1)
-
-        setMyCartList(newMyCartList)
+        // newMyCartList.splice(index, 1)
+        // console.log(arr);
+        setMyCartList(arr)
     }
 
 
@@ -48,7 +50,7 @@ const MyCart = ({ navigation }) => {
     function renderHeader() {
         return (
             <Header 
-                title="MY CART"
+                // title="MY CART"
                 containerStyle={{
                     height: 50,
                     marginHorizontal: SIZES.padding,
@@ -75,9 +77,21 @@ const MyCart = ({ navigation }) => {
                     /> 
                 }
                 rightComponent={
-                    <CartQuantityButton
-                        quantity={3}
-                    />
+                    <TextButton 
+                    // icon={icons.back}
+                    label="SAVE"
+                    buttonContainerStyle={{
+                        width: 100,
+                        height: 40,
+                        justifyContent: 'center',
+                        alignItems: 'center',
+                        borderWidth: 1,
+                        borderRadius:  SIZES.radius,
+                        borderColor: COLORS.gray2
+                    
+                    }}
+                    onPress={() => navigation.goBack()}
+                /> 
                 }
             />
         )
@@ -145,7 +159,7 @@ const MyCart = ({ navigation }) => {
                                 if (data.item.qty > 1) {
                                     updateQuantityHander(data.item.qty -1, data.item.id)
                                 } else {
-                                    removeMyCartHandler(data.id)
+                                    removeMyCartHandler(data.item.id)
                                 }
                             }}
                         /> 
@@ -174,11 +188,13 @@ const MyCart = ({ navigation }) => {
     React.useEffect(() => {
         let tots  = 0;
         myCartList.forEach(a => {
-            console.log(a)
+            // console.log(a)
             tots += Number(a.price) * Number(a.qty);
         })
         setFTotal(tots);
-    }, [])
+        // setMyCartList(myCartList)
+        console.log(tots)
+    }, [myCartList])
 
 
 
