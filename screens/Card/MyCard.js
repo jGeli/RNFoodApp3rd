@@ -16,7 +16,7 @@ const MyCard = ({ navigation }) => {
     function renderHeader() {
         return (
             <Header 
-                title="MY CARDS"
+                title="Payment Method"
                 containerStyle={{
                     height: 50,
                     marginHorizontal: SIZES.padding,
@@ -114,6 +114,7 @@ const MyCard = ({ navigation }) => {
                         backgroundColor: selectedCard == null ? COLORS.gray : COLORS.primary
                     }}
                     label={selectedCard?.key == "NewCard" ? "Add" : "Place Your Order"}
+                    onPress={() => navigation.navigate("Checkout")}
                 />
             </View>
         )

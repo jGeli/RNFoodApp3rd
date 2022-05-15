@@ -47,7 +47,8 @@ import { COLORS, FONTS, SIZES, icons } from "../constants";
                     style={{
                         color: COLORS.white,
                         ...FONTS.body5,
-                        lineHeight: 0,
+                        lineHeight: 11,
+                        fontWeight: 'bold',
                         fontSize: 10
                     }}
                 >

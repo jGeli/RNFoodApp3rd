@@ -24,7 +24,6 @@ import {
     Rating,
     StepperInput
 } from "../../components";
-import { not } from 'react-native-reanimated';
 const FoodDetail = ({navigation}) => {
     
     const [foodItem, setFoodItem] = React.useState(dummyData.vegBiryani)

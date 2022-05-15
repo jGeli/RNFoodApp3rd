@@ -26,7 +26,7 @@ const App = () => {
                 screenOptions={{
                     headerShown: false
                 }}
-                initialRouteName={'FoodDetail'}
+                initialRouteName={'FoodDetails'}
             >
                 <Stack.Screen
                     name="FoodDetail"
@@ -57,7 +57,7 @@ const App = () => {
                     name="MyCard"
                     component={MyCard}
                 />
-
+            
                 <Stack.Screen
                     name="DeliveryStatus"
                     component={DeliveryStatus}

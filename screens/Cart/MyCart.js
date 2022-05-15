@@ -6,6 +6,7 @@ import {
     StyleSheet
 } from 'react-native';
 import { SwipeListView } from 'react-native-swipe-list-view'; 
+import { useEffect } from 'react/cjs/react.production.min';
 
 import {
     Header,
@@ -19,6 +20,8 @@ import { FONTS, SIZES, COLORS, icons, dummyData } from "../../constants";
 const MyCart = ({ navigation }) => {
 
     const [myCartList, setMyCartList] = React.useState(dummyData.myCart) 
+    const [fTotal, setFTotal] = React.useState(0) 
+
 
     // hander section
     function updateQuantityHander(newQty, id) {
@@ -26,6 +29,7 @@ const MyCart = ({ navigation }) => {
             cl.id  === id ? { ...cl, qty: newQty} : cl
         ))
         setMyCartList(newMyCartList)
+
     }
 
     function removeMyCartHandler(id) {
@@ -126,7 +130,7 @@ const MyCart = ({ navigation }) => {
                             }}
                         >
                             <Text style={{ ...FONTS.body3}}>{data.item.name}</Text>
-                            <Text style={{color: COLORS.primary, ...FONTS.h3}}>${data.item.price}</Text>
+                            <Text style={{color: COLORS.primary, ...FONTS.h3}}>₱{data.item.price}</Text>
                         </View>
                         {/* Quantity */}
                         <StepperInput 
@@ -140,9 +144,11 @@ const MyCart = ({ navigation }) => {
                             onMinus={() =>{
                                 if (data.item.qty > 1) {
                                     updateQuantityHander(data.item.qty -1, data.item.id)
+                                } else {
+                                    removeMyCartHandler(data.id)
                                 }
                             }}
-                        />
+                        /> 
                     </View>
                 )}
                 renderHiddenItem={(data, rowMap) => (
@@ -164,6 +170,19 @@ const MyCart = ({ navigation }) => {
         )
     }
 
+
+    React.useEffect(() => {
+        let tots  = 0;
+        myCartList.forEach(a => {
+            console.log(a)
+            tots += Number(a.price) * Number(a.qty);
+        })
+        setFTotal(tots);
+    }, [])
+
+
+
+
     return (
         <View
             style={{
@@ -179,9 +198,7 @@ const MyCart = ({ navigation }) => {
 
             {/* Footer */}
             <FooterTotal 
-            subTotal={37.97}
-            shippingFee={0.00}
-            total={37.97}
+            total={fTotal}
             onPress={() => navigation.navigate("MyCard")}
             />
         </View>

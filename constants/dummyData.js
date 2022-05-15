@@ -133,6 +133,10 @@ const sizes = [
 
 const myCart = [
     {
+        ...wrapSandwich,
+        qty: 2
+    },
+    {
         ...hamburger,
         qty: 1
     },
